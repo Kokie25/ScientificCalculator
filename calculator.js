@@ -36,39 +36,7 @@ function pi(){
     display.value += Math.PI;
 }
 
-// function calculateSine() {
 
-//     const angleInDegrees = parseFloat(display.value);
-//     if (isNaN(angleInDegrees)) {
-//         display.value = 'Error';
-//         return;
-//     }
-//     const angleInRadians = (angleInDegrees * Math.PI) / 180;
-//     display.value = Math.sin(angleInRadians);
-// }
-
-
-// function calculateCosine() {
-
-//     const angleInDegrees = parseFloat(display.value);
-//     if (isNaN(angleInDegrees)) {
-//         display.value = 'Error';
-//         return;
-//     }
-//     const angleInRadians = (angleInDegrees * Math.PI) / 180;
-//     display.value = Math.cos(angleInRadians);
-// }
-
-// function calculateTangent() {
-
-//     const angleInDegrees = parseFloat(display.value);
-//     if (isNaN(angleInDegrees)) {
-//         display.value = 'Error';
-//         return;
-//     }
-//     const angleInRadians = (angleInDegrees * Math.PI) / 180;
-//     display.value = Math.tan(angleInRadians);
-// }
 
 
 function calculateTrig(type) {
@@ -99,3 +67,10 @@ function calculateTrig(type) {
     }
     
 }
+
+
+function calculateSquare(){
+    display.value = Math.pow(parseFloat(display.value), 2).toFixed(5);
+}
+
+console.log(calculateSquare(2,2));
