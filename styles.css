@@ -31,7 +31,11 @@
     color: white;
     cursor: pointer;
     margin: 10px;
-    font-size: 25px;
+    font-size: 28px;
+}
+
+.calculator form input:hover{
+    background-color: rgb(109, 103, 103);
 }
 
 form .display{
@@ -52,9 +56,19 @@ form input.equal{
 }
 
 
-form input.all-clear{
-    background-color: palevioletred;
+form input.equal:hover{
+    background-color: rgb(214, 164, 206);
 }
+
+
+form input.operator{
+    background-color: rgb(160, 177, 66);
+}
+
+form input.operator:hover{
+    background-color: rgb(135, 139, 111);
+}
+
 
 form input.trig{
     border: 0;
@@ -70,3 +84,9 @@ form input.trig{
     margin: 10px;
     font-size: 25px;
 }
+
+form input.trig:hover{
+    background-color: rgb(214, 164, 206);
+}
+
+

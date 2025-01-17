@@ -38,7 +38,6 @@ function pi(){
 
 
 
-
 function calculateTrig(type) {
     const angleInDegrees = parseInt(display.value);
     
@@ -61,6 +60,27 @@ function calculateTrig(type) {
         case 'tan':
             display.value = Math.tan(angleInRadians).toFixed(5);
             break;
+        case 'log':
+            display.value = Math.log(parseFloat(display.value)).toFixed(5);
+            break;
+        case'rnd':
+            display.value = Math.round(parseFloat(display.value));
+            break;
+        case'√':
+            display.value = Math.sqrt(parseFloat(display.value)).toFixed(2);
+            break;
+        case 'max':
+            const numbers = display.value.split(',')
+                .map(num => parseFloat(num.trim()))
+                .filter(num => !isNaN(num)); 
+        
+            if (numbers.length === 0) {
+                display.value = "Error: No valid numbers provided";
+            } else {
+                display.value = Math.max(...numbers);
+            }
+            break;
+            
         default:
             display.value = 'Error'; // Invalid function type
             break;
@@ -69,8 +89,25 @@ function calculateTrig(type) {
 }
 
 
-function calculateSquare(){
-    display.value = Math.pow(parseFloat(display.value), 2).toFixed(5);
+function calculatePower(type){
+    switch(type){
+        case 'x²':
+            display.value = Math.pow(parseFloat(display.value), 2).toFixed(0);
+            break;
+        case 'x3':
+            display.value = Math.pow(parseFloat(display.value), 3).toFixed(0);
+            break;
+        case 'ex':
+            display.value = Math.exp(parseFloat(display.value)).toFixed(5);
+        default:
+            display.value = 'Error'; 
+            break;
+    }
 }
 
-console.log(calculateSquare(2,2));
+
+
+
+
+
+
