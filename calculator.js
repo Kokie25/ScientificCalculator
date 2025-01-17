@@ -54,20 +54,35 @@ function calculateTrig(type) {
         case 'sin':
             display.value = Math.sin(angleInRadians).toFixed(5);;
             break;
+        case 'si':
+            display.value = Math.sign(parseFloat(display.value).toFixed(0));
+            break;
         case 'cos':
             display.value = Math.cos(angleInRadians).toFixed(5);
+            break;
+        case 'log10':
+            display.value = Math.log10(parseFloat(display.value)).toFixed(3);
             break;
         case 'tan':
             display.value = Math.tan(angleInRadians).toFixed(5);
             break;
+        case 'abs':
+            display.value = Math.abs(parseFloat(display.value));
+            break;
         case 'log':
             display.value = Math.log(parseFloat(display.value)).toFixed(5);
+            break;
+        case 'log2':
+            display.value = Math.log2(parseFloat(display.value)).toFixed(5);
             break;
         case'rnd':
             display.value = Math.round(parseFloat(display.value));
             break;
         case'√':
             display.value = Math.sqrt(parseFloat(display.value)).toFixed(2);
+            break;
+        case '%':
+            display.value = (parseFloat(display.value) / 100);
             break;
         case 'max':
             const numbers = display.value.split(',')
@@ -80,7 +95,17 @@ function calculateTrig(type) {
                 display.value = Math.max(...numbers);
             }
             break;
-            
+        case 'min':
+            const number = display.value.split(',')
+                .map(num => parseFloat(num.trim()))
+                .filter(num => !isNaN(num)); 
+        
+            if (number.length === 0) {
+                display.value = "Error: No valid numbers provided";
+            } else {
+                display.value = Math.min(...number);
+            }
+            break;
         default:
             display.value = 'Error'; // Invalid function type
             break;
@@ -99,6 +124,7 @@ function calculatePower(type){
             break;
         case 'ex':
             display.value = Math.exp(parseFloat(display.value)).toFixed(5);
+            break;
         default:
             display.value = 'Error'; 
             break;
