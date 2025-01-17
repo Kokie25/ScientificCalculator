@@ -54,9 +54,6 @@ function calculateTrig(type) {
         case 'sin':
             display.value = Math.sin(angleInRadians).toFixed(5);;
             break;
-        case 'si':
-            display.value = Math.sign(parseFloat(display.value).toFixed(0));
-            break;
         case 'cos':
             display.value = Math.cos(angleInRadians).toFixed(5);
             break;
@@ -79,7 +76,12 @@ function calculateTrig(type) {
             display.value = Math.round(parseFloat(display.value));
             break;
         case'√':
-            display.value = Math.sqrt(parseFloat(display.value)).toFixed(2);
+            const num = parseFloat(display.value)
+            if (num < 0) {
+                display.value = "Error: Cannot calculate square root of a negative number";
+            } else {
+                display.value = Math.sqrt(num).toFixed(2);
+            }
             break;
         case '%':
             display.value = (parseFloat(display.value) / 100);
@@ -116,20 +118,35 @@ function calculateTrig(type) {
 
 function calculatePower(type){
     switch(type){
-        case 'x²':
+        case 'x^2':
             display.value = Math.pow(parseFloat(display.value), 2).toFixed(0);
             break;
-        case 'x3':
+        case 'x^3':
             display.value = Math.pow(parseFloat(display.value), 3).toFixed(0);
             break;
-        case 'ex':
+        case 'e^x':
             display.value = Math.exp(parseFloat(display.value)).toFixed(5);
+            break;
+        case 'x!':
+            const num = parseFloat(display.value)
+            if (num < 0 || !Number.isInteger(num)) {
+                display.value = 'Error'; 
+            } else {
+                display.value = factorial(num);
+            }
             break;
         default:
             display.value = 'Error'; 
             break;
     }
 }
+
+function factorial(n) {
+    if (n === 0 || n === 1) 
+        return 1;
+    return n * factorial(n - 1);
+}
+
 
 
 
